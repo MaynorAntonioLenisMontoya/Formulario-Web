@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- CSS -->
+     <link rel="stylesheet" href="formulario.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+     <script src="script.js"></script>
+      <!--Font-Awesome-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+ 
+    <title>Document</title>
+</head>
+<body>
+    <form class="form-register" id="myFormEdit">
+
+        <h4>Formulario Registro</h4>
+        <p class="i">Ingrese su codigo</p>
+        <input class="controls" type="text" name="codigo" id="codigo" placeholder="Maximo 13 caracteres">
+        
+        <p class="i">Ingrese su sucursal</p>
+        <input class="controls" type="text" name="sucursal" id="sucursal" placeholder="Maximo 2 caracteres">
+
+        <p class="i">Ingrese su Número de identificación tributaria (NIT)</p>
+        <input class="controls" type="text" name="nit" id="nit" placeholder="Maximo 15 caracteres">
+
+        <p class="i">Ingrese su Número (NIT_DV)</p>
+        <input class="controls" type="text" name="nit_dv" id="nit_dv" placeholder="Maximo 1 caracter">
+        
+        <p class="i">Ingrese su Tipo de tercero</p>
+        <input class="controls" type="number" name="tipo_terc" id="tipo_terc" placeholder="No hay limite de caracteres">
+      
+        <p class="i">Ingrese su Rol Único Tributario (ind_rut)</p>
+        <input class="controls" type="number" name="ind_rut" id="ind_rut" placeholder="No hay limite de caracteres">
+        
+        <p class="i">Ingrese su Nombre</p>
+        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Maximo 50 caracteres">
+       
+        <p class="i">Ingrese el nombre de establecimiento</p>
+        <input class="controls" type="text" name="nombre_establec" id="nombre_establec" placeholder="Maximo 50 caracteres">
+        
+        <p class="i">Ingrese su numero de identificacion</p>
+        <input class="controls" type="number" name="tipo_ident" id="tipo_ident" placeholder="No hay limite de caracteres">
+        
+        <p class="i">Ingrese su estado</p>
+        <input class="controls" type="text" name="estado" id="estado" placeholder="Maximo 1 caracter">
+        
+        <p class="i">Ingrese su pais</p>
+        <input class="controls" type="number" name="pais" id="pais" placeholder="No hay limite de caracter">
+       
+        <p class="i">Ingrese su departamento</p>
+        <input class="controls" type="number" name="dpto" id="dpto" placeholder="No hay limite de caracter">
+        
+        <p class="i">Ingrese su Ciudad</p>
+        <input class="controls" type="number" name="ciudad" id="ciudad" placeholder="No hay limite de caracter">
+        
+        <p class="i">Ingrese su email</p>
+        <input class="controls" type="text" name="email" id="email" placeholder="Maximo 50 caracteres">
+        
+        <p class="i">Ingrese su barrio</p>
+        <input class="controls" type="text" name="barrio" id="barrio" placeholder="Maximo 15 caracteres">
+
+        <p class="i">Ingrese su telefono_2</p>
+        <input class="controls" type="text" name="telefono_2" id="telefono_2" placeholder="Maximo 15 caracteres">
+        
+        <p class="i">Ingrese su CIIU</p>
+        <input class="controls" type="number" name="ciiu" id="ciiu" placeholder="Maximo 6 caracteres">
+
+        
+        
+        
+        <div class="ml-auto mr-auto justify-content-center d-flex">
+            <div class="row">
+                <div class="col-6">
+                    <input class="botons" id="btn" href="index.html"  type="submit" value="Enviar">
+                </div>
+                <div class="col-6">
+                    <a class="button" href="index.html">Regresar</a>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+      <script src="editar.js"></script>
+</body>
+</html>

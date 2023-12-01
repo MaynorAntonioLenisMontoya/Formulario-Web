@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+   
+    <!-- CSS -->
+    <link rel="stylesheet" href="filtro.css">
+
+  
+     <!--Font-Awesome-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <title>Formulario</title>
+</head>
+<body>
+
+</nav>
+<!--section class="form-register">
+    <h4>Formulario Registro</h4>
+    <p>Ingrese su codigo</a></p>
+    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su codigo">
+
+    <p>Ingrese su nombre</a></p>
+    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su nombre">
+   
+    <p>Ingrese su CIIU</a></p>
+    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su CIIU">
+   
+    <p>Ingrese su sucursal</a></p>
+    <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su sucursal">
+    
+    <p>Ingrese su email</a></p>
+    <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su email">
+    
+    <form class="d-flex">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+        <button class="btn btn-outline-success"  type="submit">Regresar</button>
+    </form>
+  </section-->
+
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <p class="text-white">Ingrese su codigo</a></p>
+    <input class="controls" type="text" name="codigo" id="codigo" placeholder="Ingrese su codigo">
+        </div>
+        <div class="col-4">
+            <p class="text-white">Ingrese su nombre</a></p>
+    <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+        </div>
+        <div class="col-4">
+            <p class="text-white">Ingrese su ciiu</a></p>
+    <input class="controls" type="text" name="ciiu" id="ciiu" placeholder="Ingrese su ciiu">
+        </div>
+        <div class="col-4">
+            <p class="text-white">Ingrese su sucursal</a></p>
+    <input class="controls" type="text" name="sucursal" id="sucursal" placeholder="Ingrese su sucursal">
+        </div>
+        <div class="col-4">
+            <p class="text-white">Ingrese su email</a></p>
+    <input class="controls" type="text" name="email" id="email" placeholder="Ingrese su email">
+        </div>
+        <div class="col-4">
+            <p class="text-white">Acciónes</a></p>
+            <button class="btn bg-primary btn-info " type="submit" onclick="filtrar()">Buscar</button>
+            <br>
+            <br>
+            
+            <div class="col-4">
+                <a class="btn bg-primary btn-info " href="index.html">Regresar</a>
+            </div>
+        </div>
+        
+        
+    </div>
+  </div>
+   <!--Tabla-->
+<div class="container mt-5">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col" class="ps-1 pe-1 text-nowrap">#</th>
+               <th scope="col" class="ps-1 pe-5 text-nowrap">Codigo</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Sucursal</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Nit</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Nit DV</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Tipo de tercero</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Int RUT</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Nombre</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Nombre del establecimiento</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Tipo de identificacion</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Estado</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Pais</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Departamento</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Ciudad</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Email</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Barrio</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Telefono 2</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">CIIU</th>
+                
+                
+                <!-- <th scope="col" class="ps-1 pe-1 text-nowrap">Acciones</th> -->
+                <!-- Agregar el resto de las columnas del encabezado aquí -->
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+             
+                
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+
+<script src="filtro.js"></script>
+</body>
+</html>

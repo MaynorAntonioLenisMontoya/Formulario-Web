@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url('imagenes/fondo.jpg');
+  background-size: cover; /* Establece el tamaño de la imagen de fondo para cubrir completamente el cuerpo */
+  background-position: center; /* Centra la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  background-attachment: fixed;
+}
+
+.text{
+  font-size: 20px;
+color: #ffff;
+text-align: center;
+background: #24303c; /* Puedes ajustar los colores según tus preferencias */
+
+}
+
+/*Estilos botones*/
+.btn-group {
+  position: fixed; /* Cambiado a fixed para que sea fijo en la ventana del navegador */
+  top: 5px; /* Alinea el borde superior 5 píxeles desde la parte superior de la ventana */
+  right: 100px; /* Alinea el borde derecho 10 píxeles desde el lado derecho de la ventana */
+  top : 40px;
+  color: black;
+  max-width: 400px; 
+  margin: auto; 
+  padding: 20px;
+  border: 1px solid #000000; 
+  border-radius: 10px; 
+  background-color:  #333333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  margin-top: 50px;
+}
+
+.btn-group .btn {
+    color: #000000; /* Color del texto */
+    background-color: #ffff; /* Color de fondo */
+    border-color: #000000; /* Color del borde */
+  }
+  .btn-group .btn:hover{
+    filter: invert(100%);
+  }
+
+  .table .table-striped {
+    margin-top: 20px; /* Puedes ajustar el valor según tu preferencia */
+    color: #000000; /* Color del texto */
+    background-color: #ffff; /* Color de fondo */
+    border-color: #000000; /* Color del borde */
+}
+.table-responsive{
+  top: 150%;
+}
+
+tr{
+  
+  color: #000000; /* Color del texto */
+  background-color: #000000; /* Color de fondo */
+  border-color: #000000; /* Color del borde */
+  border: 2px solid #000000; 
+ 
+;
+}
+tr :hover{
+  filter: invert(100%);
+}
+
+/* Formulario */

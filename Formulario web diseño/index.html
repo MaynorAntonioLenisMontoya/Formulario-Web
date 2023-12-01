@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+   
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilos.css">
+
+  
+     <!--Font-Awesome-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <title>Formulario</title>
+</head>
+<body>
+
+  <div class="text ">
+    <h1 >Administrador de formularios</h1>
+  </div>
+
+  <div class="btn-group" role="group" aria-label="Basic outlined example">
+    <a href="formulario.html" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i></a>
+    <a href="#" class="btn btn-outline-primary" onclick="document.getElementById('fileInput').click();">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+    </a>
+    <a href="#" class="btn btn-outline-primary" onclick="document.getElementById('fileUploadInput').click();">
+        <i class="fa-solid fa-cloud-arrow-down" style="color: #000000;"></i>
+    </a>
+    <a href="filtro.html" class="btn btn-outline-primary"><i class="fa-solid fa-filter" style="color: #000000;"></i></a>
+    <input type="file" id="fileInput" style="display: none;" />
+    <input type="button" id="fileUploadInput" style="display: none;" />
+</div>
+
+</div>
+
+  
+<br>
+<br>
+<br>
+  <!--Tabla-->
+<div class="container mt-5">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col" class="ps-1 pe-1 text-nowrap">#</th>
+               <th scope="col" class="ps-1 pe-5 text-nowrap">Codigo</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Sucursal</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Nit</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Nit DV</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Tipo de tercero</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Int RUT</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Nombre</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Nombre del establecimiento</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Tipo de identificacion</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Estado</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Pais</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Departamento</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Ciudad</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Email</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Barrio</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Telefono 2</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">CIIU</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Editar</th>
+                <th scope="col" class="ps-1 pe-5 text-nowrap">Eliminar</th>
+                
+                <!-- <th scope="col" class="ps-1 pe-1 text-nowrap">Acciones</th> -->
+                <!-- Agregar el resto de las columnas del encabezado aquí -->
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                <td class="ps-5 pe-5 text-nowrap"></td>
+                
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

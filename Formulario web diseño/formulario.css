@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('imagenes/fondo.jpg');
+    background-attachment: fixed;
+  }
+  
+  .form-register {
+    width: 600px; /* Ajusta el ancho del formulario según tus necesidades */
+    background: #24303c;
+    padding: 40px; /* Ajusta el relleno según tus necesidades */
+    margin: auto;
+    margin-top: 70px; /* Ajusta el margen superior según tus necesidades */
+    border-radius: 8px; /* Ajusta el radio de las esquinas según tus necesidades */
+    font-family: 'Arial';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+  }
+  
+  .form-register h4 {
+    font-size: 28px; /* Ajusta el tamaño del título según tus necesidades */
+    margin-bottom: 30px; /* Ajusta el margen inferior del título según tus necesidades */
+  }
+  
+  .controls {
+    width: calc(100% - 20px); /* Ajusta el ancho del control según tus necesidades */
+    background: #24303c;
+    padding: 15px; /* Ajusta el relleno del control según tus necesidades */
+    border-radius: 6px; /* Ajusta el radio de las esquinas del control según tus necesidades */
+    margin-bottom: 20px; /* Ajusta el margen inferior del control según tus necesidades */
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 20px; /* Ajusta el tamaño del texto del control según tus necesidades */
+    color: white;
+  }
+  
+  .form-register p {
+    height: 50px; /* Ajusta la altura del párrafo según tus necesidades */
+    text-align: center;
+    font-size: 20px; /* Ajusta el tamaño del texto del párrafo según tus necesidades */
+    line-height: 50px; /* Ajusta la altura de línea del párrafo según tus necesidades */
+  }
+  
+  .form-register a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .form-register a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .form-register .botons {
+    width: 100%; /* Ajusta el ancho del botón según tus necesidades */
+    background: #1f53c5;
+    border: none;
+    padding: 15px; /* Ajusta el relleno del botón según tus necesidades */
+    color: white;
+    margin: 30px 1%; /* Ajusta el margen superior e inferior y el espacio entre los botones según tus necesidades */
+    font-size: 18px; /* Ajusta el tamaño del texto del botón según tus necesidades */
+    display: inline-block; /* Añade esta propiedad para colocar los botones en línea */
+}
+
+.form-register p.i {
+    height: 50px; /* Ajusta la altura del párrafo según tus necesidades */
+    text-align: left;
+    font-size: 20px; /* Ajusta el tamaño del texto del párrafo según tus necesidades */
+    line-height: 50px; /* Ajusta la altura de línea del párrafo según tus necesidades */
+}
+
+.button {
+    width: 100%; /* Ajusta el ancho del botón según tus necesidades */
+    background: #1f53c5;
+    text-align: center;
+    border: none;
+    padding: 15px; /* Ajusta el relleno del botón según tus necesidades */
+    color: white;
+    margin: 30px 1%; /* Ajusta el margen superior e inferior y el espacio entre los botones según tus necesidades */
+    font-size: 18px; /* Ajusta el tamaño del texto del botón según tus necesidades */
+    display: inline-block; /* */
+}
+
+
