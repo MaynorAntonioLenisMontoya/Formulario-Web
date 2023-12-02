@@ -124,7 +124,7 @@ public class FormularioServiceImpl implements FormularioService {
                 cell.setCellValue(headers[i]);
             }
 
-            // Datos
+
             for (int rowNum = 1; rowNum <= result.size(); rowNum++) {
                 Row row = sheet.createRow(rowNum);
                 Formulario formulario = result.get(rowNum - 1);
@@ -171,6 +171,16 @@ public class FormularioServiceImpl implements FormularioService {
         if (data.length < 17) {
             throw new IllegalArgumentException("La línea del CSV no tiene suficientes elementos");
         }
+        // Datos
+            /*
+            Este método toma una fila de información de un archivo CSV
+            (un tipo de archivo con datos separados por comas),
+            la divide en partes y asigna esas partes a diferentes campos del formulario.
+            Después de este proceso, obtendrá un objeto de formulario que contiene la información de esa fila CSV.
+            En otras palabras, convierte datos almacenados en formato CSV en objetos
+            que las aplicaciones pueden entender y utilizar. Es como convertir información de un formato
+            a otro que la aplicación puede procesar fácilmente.
+            */
         Formulario formulario = new Formulario();
         formulario.setCodigo(data[0]); // Ajusta según la estructura de tu CSV
         formulario.setSucursal(data[1]);

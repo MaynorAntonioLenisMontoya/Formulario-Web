@@ -14,6 +14,13 @@ import java.util.Optional;
 public interface FormularioRepository extends JpaRepository <Formulario, Long> {
 
 
+
+  /*IS NULL OR : este verifica si el "atributo" es nulo si este no es
+    nulo compara el valor.
+    ejemplo:
+    "codigo" si este valor no es nulo lo compara con el valor de
+    "formulario.codigo" con el valor de "codigo"
+   */
   @Query(value = """
     SELECT * FROM formulario 
     WHERE (:codigo IS NULL OR formulario.codigo = :codigo)
@@ -28,6 +35,15 @@ public interface FormularioRepository extends JpaRepository <Formulario, Long> {
           @Param("ciiu") String ciiu,
           @Param("sucursal") String sucursal,
           @Param("email") String email
+          /*
+          El @Param permite  indica que el parametro que se esta pasando
+          se asosia con el parametro que este en la consultaSQL
+          Esta anotación proporciona un mecanismo de enlace entre los parámetros en
+          la interfaz del método y los parámetros en la consulta.
+          ejemplo:
+          @Param("email") indica que el parámetro "email" en el método "listaFiltros" está
+          asociado con el parámetro de la consulta SQL que lleva el mismo nombre, es decir, ":email."
+          */
   );
   
 
