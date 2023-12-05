@@ -12,6 +12,12 @@ import lombok.*;
 @Setter
 @EqualsAndHashCode
 @Entity
+
+/*
+ Esta clase "Formulario" representa una entidad que puede ser almacenada en una base de datos
+ relacional utilizando JPA. Los campos de la clase se corresponden con las columnas de la tabla
+ de base de datos.
+*/
 public class Formulario {
 
         @Id

@@ -34,28 +34,58 @@ public class FormularioServiceImpl implements FormularioService {
     @Autowired
     private FormularioRepository formularioRepository;
 
+
+    /*
+         el propósito de este método es crear un nuevo formulario en la base de datos después
+         de realizar una validación. La validación se realiza antes de intentar guardar
+         el formulario para asegurarse de que cumpla con ciertos requisitos o restricciones.
+         La validación puede lanzar una excepción  si se detecta algún problema,
+         evitando así la persistencia de datos inválidos en la base de datos.
+    */
     public Formulario create(Formulario formulario) {
         validateFormulario(formulario); // Lanza una excepción si la validación falla
         return formularioRepository.save(formulario);
     }
 
+    /*
+       el propósito de este método es actualizar  un  formulario  ya existente en la base de datos después
+       de realizar una validación. La validación se realiza antes de intentar guardar
+       el formulario para asegurarse de que cumpla con ciertos requisitos o restricciones.
+       La validación puede lanzar una excepción  si se detecta algún problema,
+       evitando así la persistencia de datos inválidos en la base de datos.
+  */
     @Override
     public Formulario update(Formulario formulario) {
         Formulario updateFormulario = formularioRepository.save(formulario);
         return updateFormulario;
     }
 
+    /*
+      El Proposito de este metdo es eliminar un formulario utilizando un identificador que en
+      este caso es el id de cada atributo
+      */
     @Override
     public void delete(Long id) {
         formularioRepository.deleteById(id);
     }
 
+
+    /*
+          Este método permite gestionar grandes conjuntos de datos de forma eficiente, ya que solo recupera
+          una porción de los resultados en lugar de toda la lista a la vez. Esto es especialmente útil en situaciones
+          donde la cantidad total de resultados es grande y se desea mostrar o procesar los datos de forma gradual.
+     */
     @Override
     public Page<Formulario> read(Integer pageSize, Integer pageNumber) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         return formularioRepository.findAll(pageable);
     }
 
+    /*
+         Este método permite realizar consultas personalizadas con múltiples criterios de filtro y maneja el
+         caso en el que no se encuentran resultados, lanzando una excepción personalizada
+         Esto proporciona un control más detallado sobre los casos en los que la consulta no produce resultados
+     */
     @Override
     public List<Formulario> listaFiltros(String codigo, String nombre, String ciiu, String sucursal, String email) {
         List<Formulario> resultados = formularioRepository.listaFiltros(codigo, nombre, ciiu, sucursal, email);
@@ -72,63 +102,95 @@ public class FormularioServiceImpl implements FormularioService {
     }
 
     @Override
+    // Método para cargar datos desde un archivo CSV
     public void cargarDesdeCSV(MultipartFile archivo) throws IOException {
+       // Utilizar un try-with-resources para garantizar la gestión adecuada de recursos
         try (CSVReader csvReader = new CSVReader(new InputStreamReader(archivo.getInputStream(), StandardCharsets.UTF_8))) {
+            // Arreglo para almacenar cada línea del archivo CSV
             String[] linea;
+            // Booleano para controlar si la línea actual es la primera (encabezados)
             boolean primeraLinea = true;
-
+            // Leer cada línea del archivo CSV
             while ((linea = csvReader.readNext()) != null) {
+                // Verificar si es la primera línea
                 if (primeraLinea) {
                     // Omitir la primera línea que contiene los títulos
                     primeraLinea = false;
                     continue;
                 }
+                //prime por consola la linea
                     System.out.println(Arrays.toString(linea));
-                // Aquí debes parsear los datos de la línea y crear un objeto Formulario
+
+                // Parsear los datos de la línea y crear un objeto Formulario
                 Formulario formulario = crearFormularioDesdeLineaCSV(linea);
 
                 // Luego, puedes llamar al método existente para guardar en la base de datos
                 create(formulario);
             }
+            /*
+              Captura una excepción específica de tipo CsvValidationException.
+              Esta excepción generalmente se lanza cuando hay problemas durante la validación de un archivo CSV,
+              como errores en el formato de las líneas o columnas.
+            */
+
         } catch (CsvValidationException e) {
+            // Manejar la excepción de validación de CSV (por ejemplo, imprimir el error)
             e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
 
+    // Utiliza el repositorio de formularios para recuperar todos los registros
     @Override
     public List<Formulario> getAllFormularios() {
         return formularioRepository.findAll();
     }
-
+    // Utiliza el repositorio de formularios para buscar un registro por su identificador
     @Override
     public Formulario findById(Long id) {
         return formularioRepository.findById(id).get();
     }
 
+    /*
+     Este método exporta los formularios almacenados en la base de datos a un archivo Excel.
+     @return Objeto DTO que contiene los datos del archivo Excel en formato Base64
+     */
     @Override
     public EcxelResponseDTO exportToExcel() {
-
+        // Obtener todos los formularios de la base de datos
         List<Formulario> result = formularioRepository.findAll();
 
         try (Workbook workbook = new XSSFWorkbook()) {
+            // Crear una hoja en el libro de trabajo
             Sheet sheet = workbook.createSheet("Formularios");
 
-            // Encabezados
+            // Encabezados de las columnas en el archivo Excel
             Row headerRow = sheet.createRow(0);
             String[] headers = {"Codigo", "Sucursal", "Nit", "Nit DV", "Tipo Terc", "Ind RUT",
                     "Nombre", "Nombre Establecimiento", "Tipo Ident", "Estado", "Pais", "Dpto", "Ciudad",
                     "Email", "Barrio", "Telefono 2", "CIIU"};
+            /*
+             itera sobre cada índice del array headers, que contiene los nombres de las columnas
+             que se utilizarán como encabezados en el archivo Excel.
+             */
             for (int i = 0; i < headers.length; i++) {
+                // Crea una celda en la fila de encabezado en la posición 'i'
                 Cell cell = headerRow.createCell(i);
+
+                // Asigna el valor del encabezado desde el array 'headers' a la celda
                 cell.setCellValue(headers[i]);
             }
 
-
+            // Llenar el archivo Excel con datos de los formularios
             for (int rowNum = 1; rowNum <= result.size(); rowNum++) {
                 Row row = sheet.createRow(rowNum);
                 Formulario formulario = result.get(rowNum - 1);
 
+                // Llenar cada celda en la fila con los datos del formulario
+                /*
+                 se utiliza para crear una celda en la fila actual (row) de una hoja de trabajo Excel
+                 y asignarle el valor del código obtenido del objeto formulario.
+                 */
                 row.createCell(1).setCellValue(formulario.getCodigo());
                 row.createCell(2).setCellValue(formulario.getSucursal());
                 row.createCell(3).setCellValue(formulario.getNit());
@@ -150,27 +212,43 @@ public class FormularioServiceImpl implements FormularioService {
 
             // Convertir el libro de trabajo a un arreglo de bytes
             try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+                // Escribe el contenido del libro de trabajo en el flujo de salida (ByteArrayOutputStream)
                 workbook.write(bos);
+                // Convierte el contenido del flujo de salida a un arreglo de bytes
                 byte[] excelBytes = bos.toByteArray();
+
                 // Convertir los bytes a Base64
                 return EcxelResponseDTO.builder()
+                        // Asignar la representación Base64 de los bytes del archivo Excel al atributo 'b64'
                         .b64(Base64.getEncoder().encodeToString(excelBytes))
+                        // Finalizar la construcción del objeto EcxelResponseDTO y devolver una instancia completa
                         .build();
             }
+            // Se atrapa y maneja cualquier excepción de E/S (Entrada/Salida) que pueda ocurrir durante la creación del archivo Excel.
         } catch (IOException e) {
+            // Manejar cualquier excepción de E/S durante la creación del archivo Excel
+             // En este caso, se imprime la traza de la excepción para facilitar la identificación y resolución de problemas.
             e.printStackTrace();
         }
+        // En caso de error, devuelve null
         return null;
     }
 
+    // Aquí se  mapea los elementos del array a los campos del objeto Formulario
     private Formulario crearFormularioDesdeLineaCSV(String[] linea) {
-        // Aquí debes mapear los elementos del array a los campos del objeto Formulario
+        // Imprime la línea de datos del CSV en la consola
         System.out.println("crearFormularioDesdeLineaCSV "+Arrays.toString(linea));
+        // Divide la línea del CSV utilizando el carácter ";" como delimitador
         String[] data = Arrays.toString(linea).split(";");
+        // Imprime la cantidad de elementos en la línea después de la división
         System.out.println("------ "+data.length);
+        // Verifica si la línea tiene al menos 17 elementos (campos del objeto Formulario)
         if (data.length < 17) {
+            // Lanza una excepción si la línea no tiene suficientes elementos
             throw new IllegalArgumentException("La línea del CSV no tiene suficientes elementos");
-        }
+    }
+
+
         // Datos
             /*
             Este método toma una fila de información de un archivo CSV
@@ -206,7 +284,7 @@ public class FormularioServiceImpl implements FormularioService {
 
 
 
-
+        //Metodo para la validacion de cada atributo de la tabla
     private boolean validateFormulario(Formulario formulario) {
         // Validación para el campo 'codigo'
         if (formulario.getCodigo() != null && formulario.getCodigo().length() > 13) {

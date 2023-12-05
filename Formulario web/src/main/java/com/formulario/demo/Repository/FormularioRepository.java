@@ -9,7 +9,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-
+/*
+  La interfaz FormularioRepository, que extiende la interfaz JpaRepository
+  proporcionada por Spring Data JPA, actúa como una interfaz de repositorio
+  en una aplicación Java basada en el framework Spring. Esta interfaz es responsable
+  de gestionar la interacción entre la aplicación y la capa de persistencia, específicamente
+  para la entidad Formulario en el contexto de una base de datos relacional.
+ */
 @Repository
 public interface FormularioRepository extends JpaRepository <Formulario, Long> {
 
