@@ -15,7 +15,11 @@ public interface FormularioRepository extends JpaRepository <Formulario, Long> {
 
 
 
-  /*IS NULL OR : este verifica si el "atributo" es nulo si este no es
+  /*IS NULL OR :Si el valor del parámetro es nulo,
+   esa parte de la condición no limita los resultados.
+   Si el valor del parámetro está presente, la condición afecta la búsqueda según ese valor.
+
+    este verifica si el "atributo" es nulo si este no es
     nulo compara el valor.
     ejemplo:
     "codigo" si este valor no es nulo lo compara con el valor de
