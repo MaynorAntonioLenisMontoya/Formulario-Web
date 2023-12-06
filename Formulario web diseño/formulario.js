@@ -1,3 +1,4 @@
+// Agrega un evento de escucha al formulario con ID "myForm" que se activa cuando se intenta enviar el formulario
 document.getElementById('myForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
 
@@ -27,14 +28,18 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
     var isValid = true;
 
     for (var i = 0; i < requiredFields.length; i++) {
+        // Obtiene el nombre de un campo específico en cada iteración
         var fieldName = requiredFields[i];
+        // Obtiene el valor del campo del objeto formDataObject
         var fieldValue = formDataObject[fieldName];
 
         if (!fieldValue) {
             // Si algún campo requerido está vacío, establece isValid en falso y muestra un mensaje de error
             console.error('Campo requerido vacío:', fieldName);
+            // Establece la variable isValid en falso
             isValid = false;
-            break; // Termina el bucle tan pronto como se encuentra un campo vacío
+             // Termina el bucle tan pronto como se encuentra un campo vacíobggt 
+            break;
         }
     }
 

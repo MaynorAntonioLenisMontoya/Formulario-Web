@@ -104,7 +104,12 @@ public class FormularioServiceImpl implements FormularioService {
     @Override
     // Método para cargar datos desde un archivo CSV
     public void cargarDesdeCSV(MultipartFile archivo) throws IOException {
-       // Utilizar un try-with-resources para garantizar la gestión adecuada de recursos
+       /*
+        Sirve para crear un CSVReader que lee un archivo CSV desde un flujo de entrada (InputStream)
+        que proviene de un archivo subido a través de un formulario web.
+        La construcción try-with-resources asegura que los recursos asociados (como el CSVReader)
+        se cierren adecuadamente después de su uso.
+        */
         try (CSVReader csvReader = new CSVReader(new InputStreamReader(archivo.getInputStream(), StandardCharsets.UTF_8))) {
             // Arreglo para almacenar cada línea del archivo CSV
             String[] linea;
@@ -118,13 +123,13 @@ public class FormularioServiceImpl implements FormularioService {
                     primeraLinea = false;
                     continue;
                 }
-                //prime por consola la linea
+                //imprime por consola la linea
                     System.out.println(Arrays.toString(linea));
 
                 // Parsear los datos de la línea y crear un objeto Formulario
                 Formulario formulario = crearFormularioDesdeLineaCSV(linea);
 
-                // Luego, puedes llamar al método existente para guardar en la base de datos
+                // Luego, se  lama al método existente para guardar en la base de datos
                 create(formulario);
             }
             /*
@@ -140,7 +145,7 @@ public class FormularioServiceImpl implements FormularioService {
         }
     }
 
-    // Utiliza el repositorio de formularios para recuperar todos los registros
+    // Utiliza el repositorio de formularios para recuperar todos los registros "llama todos los registros actuales"
     @Override
     public List<Formulario> getAllFormularios() {
         return formularioRepository.findAll();
@@ -160,6 +165,12 @@ public class FormularioServiceImpl implements FormularioService {
         // Obtener todos los formularios de la base de datos
         List<Formulario> result = formularioRepository.findAll();
 
+        /*
+        Esto se utiliza para crear un nuevo Workbook de Excel utilizando XSSFWorkbook en un entorno try-with-resources.
+        El Workbook es la representación en memoria de un libro de Excel, y XSSFWorkbook en particular es la implementación
+        específica para trabajar con el formato de archivo .xlsx. Este código sería parte de una rutina que crea o manipula
+        un libro de Excel en Java.
+         */
         try (Workbook workbook = new XSSFWorkbook()) {
             // Crear una hoja en el libro de trabajo
             Sheet sheet = workbook.createSheet("Formularios");
